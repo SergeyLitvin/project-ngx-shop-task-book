@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { cartProduct, ICartProduct } from '../../../../shared/mocks/1-components/cart-product';
 
 @Component({
@@ -6,12 +6,19 @@ import { cartProduct, ICartProduct } from '../../../../shared/mocks/1-components
 	templateUrl: './app.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	public title = '1. Интерполяция и связывание (Карточка товара в корзине)';
+
+	public data = '';
 
 	public terminalMessage!: string;
 
 	public product: ICartProduct = cartProduct;
+
+	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
+	ngOnInit(): void {
+		console.log('this.product(): ', this.product);
+	}
 
 	public increment() {
 		this.terminalMessage = 'Увеличение количества товара';
