@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-product';
 
 @Component({
@@ -6,6 +6,11 @@ import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-prod
 	templateUrl: './shop-card.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShopCardComponent {
+export class ShopCardComponent implements OnInit {
 	@Input() product: ICartProduct = {} as ICartProduct;
+	// private _product = this.product;
+
+	ngOnInit(): void {
+		console.log('this._product(): ', this.product);
+	}
 }

@@ -15,11 +15,6 @@ export class AppComponent implements OnInit {
 
 	public product: ICartProduct = cartProduct;
 
-	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
-	ngOnInit(): void {
-		console.log('this.product(): ', this.product);
-	}
-
 	public increment() {
 		this.terminalMessage = 'Увеличение количества товара';
 		this.product.count++;
@@ -31,5 +26,10 @@ export class AppComponent implements OnInit {
 			return;
 		}
 		this.product.count--;
+	}
+
+	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
+	ngOnInit(): void {
+		// console.log('this.product(): ', this.product);
 	}
 }
