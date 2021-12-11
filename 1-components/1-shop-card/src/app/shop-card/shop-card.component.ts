@@ -8,7 +8,14 @@ import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-prod
 })
 export class ShopCardComponent implements OnInit {
 	@Input() product: ICartProduct = {} as ICartProduct;
-	// private _product = this.product;
+
+	productRating() {
+		if (this.product.rating < 1) {
+			return 'd-md-none';
+		} else {
+			return '';
+		}
+	}
 
 	ngOnInit(): void {
 		console.log('this._product(): ', this.product);
