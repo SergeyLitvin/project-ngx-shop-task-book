@@ -17,6 +17,14 @@ export class ShopCardComponent implements OnInit {
 		}
 	}
 
+	productRatingAmount() {
+		return Math.round(this.product.rating);
+	}
+
+	setPrice() {
+		return this.product.count * this.product.price;
+	}
+
 	ngOnInit(): void {
 		console.log('this._product(): ', this.product);
 	}
