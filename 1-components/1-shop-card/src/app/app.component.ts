@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
 
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	ngOnInit(): void {
-		// console.log('this.product(): ', this.product);
+		console.log('this.product(): ', this.product);
 	}
 }

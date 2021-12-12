@@ -1,11 +1,4 @@
-import {
-	ChangeDetectionStrategy,
-	Component,
-	Input,
-	Output,
-	OnInit,
-	EventEmitter,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-product';
 
 @Component({
@@ -13,10 +6,10 @@ import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-prod
 	templateUrl: './shop-card.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShopCardComponent implements OnInit {
-	@Input() product: ICartProduct = {} as ICartProduct;
+export class ShopCardComponent {
+	@Input() public product: ICartProduct = {} as ICartProduct;
 
-	productRating() {
+	public productRating() {
 		if (this.product.rating < 1) {
 			return 'd-md-none';
 		} else {
@@ -24,13 +17,14 @@ export class ShopCardComponent implements OnInit {
 		}
 	}
 
-	productRatingAmount() {
+	public productRatingAmount() {
 		return Math.round(this.product.rating);
 	}
 
-	setPrice() {
+	public setPrice() {
 		return this.product.count * this.product.price;
 	}
+
 	@Output()
 	public increment = new EventEmitter();
 
@@ -43,9 +37,5 @@ export class ShopCardComponent implements OnInit {
 
 	public decrementProductInCart(): void {
 		this.decrement.emit();
-	}
-
-	ngOnInit(): void {
-		console.log('this._product(): ', this.product);
 	}
 }
