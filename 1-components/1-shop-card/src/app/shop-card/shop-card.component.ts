@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	Input,
+	Output,
+	OnInit,
+	EventEmitter,
+} from '@angular/core';
 import { ICartProduct } from '../../../../../shared/mocks/1-components/cart-product';
 
 @Component({
@@ -23,6 +30,19 @@ export class ShopCardComponent implements OnInit {
 
 	setPrice() {
 		return this.product.count * this.product.price;
+	}
+	@Output()
+	public increment = new EventEmitter();
+
+	public incrementProductInCart(): void {
+		this.increment.emit();
+	}
+
+	@Output()
+	public decrement = new EventEmitter();
+
+	public decrementProductInCart(): void {
+		this.decrement.emit();
 	}
 
 	ngOnInit(): void {
